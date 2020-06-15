@@ -6,16 +6,38 @@ class Dishdetail extends Component {
         super(props);
     }
 
-    renderDish(selectedDish) {
-        if(selectedDish != null) {
+    renderDish(dish) {
+        if(dish != null) {
+
+            const Comments = dish.comments.map((comment) => {
+                return (
+                    <li>{comment.comment}<br/>
+                    <br/>-- {comment.author},
+                    &nbsp;
+                    {new Intl.DateTimeFormat('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: '2-digit'
+                        }).format(new Date(comment.date))}<br/><br/>
+                    </li>
+                );
+            });
             return(
-                <Card className="col-12 col-md-5 m-1">
-                    <CardImg width="100%" object src={this.props.selectedDish.image} alt={selectedDish.name}/>
-                    <CardBody>
-                        <CardTitle>{selectedDish.name}</CardTitle>
-                        <CardText>{selectedDish.description}</CardText>
-                    </CardBody>
-                </Card>
+                <div className="row" key={dish.id} >
+                    <div className="col-12 col-md-5 m-1">
+                        <Card>
+                            <CardImg width="100%" object src={dish.image} alt={dish.name}/>
+                            <CardBody>
+                                <CardTitle>{dish.name}</CardTitle>
+                                <CardText>{dish.description}</CardText>
+                            </CardBody>
+                        </Card>
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <h4>Comments</h4>
+                        <ul class="list-inline">{Comments}</ul>
+                    </div>
+                </div>
             );
         }
         else {
@@ -23,6 +45,14 @@ class Dishdetail extends Component {
                 <div></div>
             );
         }
+    }
+
+
+    render () {
+        return (<div>
+                {this.renderDish(this.props.selectedDish)}
+                </div>
+        );
     }
     
 }
