@@ -6,7 +6,7 @@ function RenderLeader ({leader}) {
     return (
         <Media tag="li" key={leader.id}>
             <Media object src={leader.image} width="50%" className="col-12 col-sm-2" alt={leader.name}/>
-            <Media body className="col-12 col-sm-8 mt-1">
+            <Media body className="col-12 col-sm-auto mt-1">
                 <Media heading>{leader.name}</Media>
                 <p>{leader.designation}</p>
                 <p>{leader.description}</p>
