@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 function RenderLeader ({leader}) {
     return (
         <Media tag="li" key={leader.id}>
-            <Media object src={leader.image} width="50%" className="col-12 col-sm-2" alt={leader.name}/>
-            <Media body className="col-12 col-sm-auto mt-1">
+            <Media object src={leader.image} className="col-12 col-sm-2" alt={leader.name}/>
+            <Media body className="col-12 d-sm-block">
                 <Media heading>{leader.name}</Media>
                 <p>{leader.designation}</p>
                 <p>{leader.description}</p>
@@ -14,7 +14,7 @@ function RenderLeader ({leader}) {
         </Media>
     )
 };
-  
+ 
 
 function About(props) {
 
