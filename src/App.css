@@ -59,3 +59,7 @@ address{
     transform: translateX(100%);
     transition: all 300ms ease-out;
 }
+
+.jumbotron {
+    border-radius: 0;
+}
